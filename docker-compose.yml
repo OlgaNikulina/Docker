@@ -5,14 +5,16 @@ services:
   db:
     image: postgres
     restart: always
+    volumes:
+      C:\Users\Pepper\IdeaProjects\Docker\docker-compose.yml:/var/lib/postgresql/data:
     environment:
-      POSTGRES_PASSWORD: PGPASSWORD
-      POSTGRES_USER: postgres
-      POSTGRES_DB: POSTGRES_USER
-      POSTGRES_INITDB_ARGS: "--data-checksums"
-      POSTGRES_INITDB_WALDIR: POSTGRES_INITDB_XLOGDIR
-      POSTGRES_HOST_AUTH_METHOD: md5
-      PGDATA: /var/lib/postgresql/data
+      -e POSTGRES_PASSWORD: mysecretpassword \
+      -e POSTGRES_USER: user \
+      -e POSTGRES_DB: postgres_user \
+      -e PGDATA: /var/lib/postgresql/data \
+      -p 8080 : 8080 \
+      -v C:\Users\Pepper\IdeaProjects\Docker\docker-compose.yml:/var/lib/postgresql/data \
+      postgers
 
   adminer:
     image: adminer
