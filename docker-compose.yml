@@ -1,9 +1,10 @@
 version: '3.1'
 
 services:
-
-  db:
+  postgres:
     image: postgres
+    ports:
+      - '8080:8080'
     restart: always
     volumes:
       - db-data:/var/lib/postgresql/data
@@ -12,10 +13,7 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=my_db
       - p 8080:8080
-      - v/data:/var/lib/postgresql
-
+      - v /data:/var/lib/postgresql
   adminer:
     image: adminer
     restart: always
-    ports:
-      - "8080:8080"
