@@ -4,11 +4,11 @@ services:
   postgres:
     image: postgres:12-alpine
     ports:
-      - '8080:8080'
+      - '5432:5432'
     restart: always
     volumes:
       - "./db-data:/var/lib/postgresql/data"
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=pass
       - POSTGRES_DB=my_db
