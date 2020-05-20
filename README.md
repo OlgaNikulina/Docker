@@ -1,8 +1,6 @@
 
 # Подготовка приложения db-api.jar к тестированию в СУБД PostgreSql
 
-Короткое описание проекта
-
 ## Начало работы
 1. jar файл полжить в проект рядом с файлом application.properties:
 ```spring.datasource.url=jdbc:postgresql://192.168.99.100:5432/my_db
